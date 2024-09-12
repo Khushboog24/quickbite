@@ -1,0 +1,204 @@
+.main-container {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #edf0eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 40px 80px 80px 80px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 0;
+    width: 104%;
+    padding: 40px 0px 80px 20px;
+    background-color: #edf0eb;
+  }
+}
+
+.header {
+  background-color: #edf0eb;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 150px;
+  box-sizing: border-box;
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00103d;
+}
+
+.header .buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.signButton {
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  height: 38px;
+  width: 100px;
+}
+
+.signButtonLight {
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  height: 38px;
+  width: 100px;
+}
+
+.header button.signup {
+  background-color: #00103d;
+  color: white;
+}
+
+/* .main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+} */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  /* Increase gap between elements */
+  position: relative;
+}
+
+.center-image {
+  width: 100%;
+  height: auto;
+  position: absolute;
+}
+
+#centerImageStyle {
+  width: 1000px;
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+.left-image {
+  position: absolute;
+  left: -180px;
+  /* Adjust this value as needed */
+  top: 20%;
+  /* Center vertically */
+  transform: translateY(-50%);
+  /* Center vertically */
+}
+
+#leftImageStyle {
+  width: 150px;
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+.right-image {
+  position: absolute;
+  right: -200px;
+  /* Adjust this value as needed */
+  top: 70px;
+  /* Adjust this value as needed */
+}
+
+#rightImageStyle {
+  width: 150px;
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+@media screen and (max-width: 768px) {
+  #rightImageStyle {
+    display: none;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.text h1 {
+  font-size: 2.5rem;
+  color: #00103d;
+  margin: 0;
+  text-align: center;
+  line-height: 1.2;
+  width: 400px;
+}
+
+.search-container {
+  display: flex;
+  // align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.search-container input {
+  padding: 10px 40px 10px 15px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  width: 250px;
+  position: relative;
+  box-shadow: none;
+  /* Ensure no box-shadow */
+  outline: none;
+  /* Remove default outline on focus */
+}
+
+.search-container #searchBtn {
+  left: 10px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  height: 38px;
+  width: 100px;
+}
+
+.search-container .icon-input__icon {
+  right: 120px;
+  position: absolute;
+  color: #00103d;
+  top: 20%;
+}
+
+.search-container .search-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+}
+
+.search-container button {
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.left-shift-search {
+  @extend .search-container;
+  align-items: center; /* This will not be animated */
+  position: relative;
+  left: 75px;
+}

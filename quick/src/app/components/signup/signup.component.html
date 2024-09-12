@@ -1,0 +1,32 @@
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <h5 class="modal-title" id="signupModalLabel">Create an account or log in</h5>
+        <p class="text-muted subtitle">Log in below or create a new QuickBite account</p>
+        <div class="social-login-buttons">
+          <button class="btn google btn-block" (click)="loginWithGoogle()">Continue with Google</button>
+          <button class="btn apple btn-block" (click)="loginWithApple()">Continue with Apple</button>
+          <button class="btn facebook btn-block mb-4" (click)="loginWithFacebook()">Continue with Facebook</button>
+        </div>
+        <div class="divider">or log in with email</div>
+        <form (ngSubmit)="loginWithEmail()">
+          <div class="form-group">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email" [(ngModel)]="email" name="email">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Next</button>
+        </form>
+        <div class="text-center mt-3">
+          <small class="text-muted">
+            This site is protected by the Google Privacy Policy and Terms of Service apply.
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

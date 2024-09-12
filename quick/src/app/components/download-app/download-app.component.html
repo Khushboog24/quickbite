@@ -1,0 +1,25 @@
+<div class="download-app">
+  <div class="work-header">
+    <h2 id="heading">Download our app</h2>
+    <span *ngIf="!downloadApp" id="headingIcon" (click)="toggleDownloadApp()"
+      ><i class="material-icons">expand_more</i></span
+    >
+    <span *ngIf="downloadApp" id="headingIcon" (click)="toggleDownloadApp()"
+      ><i class="material-icons">expand_less</i></span
+    >
+  </div>
+  <div *ngIf="downloadApp" class="body" id="downloadAppBody">
+    <div class="steps">
+      <div class="step" *ngFor="let val of data">
+        <div class="step-content">
+          <h3 class="title">{{ val.title }}</h3>
+          <p class="description">{{ val.description }}</p>
+          <div class="btn" type="div">{{ val.btn }}</div>
+        </div>
+        <div class="steps-image">
+          <img [src]="val.img" alt="Step 1" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

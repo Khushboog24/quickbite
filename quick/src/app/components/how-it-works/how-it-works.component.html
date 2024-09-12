@@ -1,0 +1,21 @@
+<div class="how-it-works">
+  <div class="how-header">
+    <h2 id="heading">How it works</h2>
+    <span *ngIf="!howItWorks" id="headingIcon" (click)="toggleHowItWorks()"
+      ><i class="material-icons">expand_more</i></span
+    >
+    <span *ngIf="howItWorks" id="headingIcon" (click)="toggleHowItWorks()"
+      ><i class="material-icons">expand_less</i></span
+    >
+  </div>
+  <!-- <div class="sectionBreak"></div> -->
+  <div *ngIf="howItWorks" class="body" id="howItWorksBody">
+    <div class="steps">
+      <div class="step" *ngFor="let val of data">
+        <img [src]="val.img" alt="Step 1" />
+        <h3>{{ val.title }}</h3>
+        <p>{{ val.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

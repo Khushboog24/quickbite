@@ -1,0 +1,103 @@
+<div class="main-container">
+  <div class="container">
+    <div
+      class="header"
+      [ngStyle]="
+        isPage1 ? { 'padding-bottom': '150px' } : { 'padding-bottom': '50px' }
+      "
+    >
+      <div class="logo">QUICK BITE</div>
+      <div class="buttons">
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">
+          Sign Up
+        </button> -->
+
+        <button
+          class="signButtonLight btn btn-primary"
+          data-toggle="modal"
+          data-target="#signupModal"
+          (click)="openLoginModal()"
+        >
+          Sign in
+        </button>
+        <button class="signButton">Sign up</button>
+      </div>
+    </div>
+    <ng-template #firstTemplate>
+      <div class="main-container">
+        <div class="main">
+          <div class="left-image">
+            <img
+              id="leftImageStyle"
+              src="https://assets.api.uizard.io/api/cdn/stream/43843a43-2241-4e3c-a2a3-f442cae1f678.png"
+              alt="Lemon"
+            />
+          </div>
+          <div class="text">
+            <h1>The quickest way to find the perfect bite</h1>
+          </div>
+          <div class="right-image">
+            <img
+              id="rightImageStyle"
+              src="https://assets.api.uizard.io/api/cdn/stream/1ae2327d-3a3d-4241-93b4-cbcd3440e737.png"
+              alt="Pizza"
+            />
+          </div>
+        </div>
+        <div class="search-container">
+          <div class="input-group-append">
+            <div class="icon-input">
+              <input
+                class="icon-input__text-field"
+                type="text"
+                placeholder="Delivery address"
+              />
+              <i class="icon-input__icon material-icons">search</i>
+              <button id="searchBtn" class="btn btn-primary" type="button">
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <app-how-it-works></app-how-it-works>
+
+      <app-work-with-qb></app-work-with-qb>
+      <app-download-app></app-download-app>
+    </ng-template>
+    <ng-template #secondTemplate>
+      <div class="center-img">
+        <img
+          id="centerImageStyle"
+          src="https://assets.api.uizard.io/api/cdn/stream/3e60192b-b847-421b-a18e-a8aae54308bd.png"
+        />
+      </div>
+      <div [ngClass]="isPage1 ? 'search-container' : 'left-shift-search'">
+        <div class="input-group-append">
+          <div class="icon-input">
+            <input
+              class="icon-input__text-field"
+              type="text"
+              placeholder="Delivery address"
+            />
+            <i class="icon-input__icon material-icons">search</i>
+            <button id="searchBtn" class="btn btn-primary" type="button">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+      <div *ngFor="let restInfo of restInfo">
+        <app-rests-structure [restInfo]="restInfo"></app-rests-structure>
+      </div>
+    </ng-template>
+
+    <!-- Directly use the templates without referencing them in TypeScript -->
+
+    <ng-container
+      *ngTemplateOutlet="isPage1 ? firstTemplate : secondTemplate"
+    ></ng-container>
+  </div>
+</div>
+
+<app-signup></app-signup>

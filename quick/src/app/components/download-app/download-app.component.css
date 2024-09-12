@@ -1,0 +1,130 @@
+.download-app {
+  background-color: #edf0eb;
+  width: 100%;
+  /* padding: 0 50px; */
+  border-top: 1px solid black;
+  border-bottom: 2px solid black;
+  /* display: flex; */
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin: 0px 150px 150px 0px;
+}
+
+
+.download-app .work-header {
+  /* border-top: 1px solid black; */
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.download-app .work-header h2 {
+  margin: 0;
+}
+
+.download-app .work-header #headingIcon {
+  cursor: pointer;
+}
+
+
+.download-app .steps {
+  /* display: flex; */
+  justify-content: space-between;
+}
+
+.download-app .step {
+  flex: 1;
+  padding: 15px 0px;
+  border-bottom: 2px solid black;
+  display: flex;
+}
+
+.download-app .step:last-child {
+  border-bottom: none;
+}
+
+.step .steps-image {
+  /* max-width: 65% !important; */
+  align-items: end;
+  display: flex !important;
+  /* margin: 0 !important; */
+}
+
+.step .steps-image img {
+  max-width: 65% !important;
+  margin: 0 auto 20px !important;
+
+}
+
+.step .step-content {
+  margin: 20px;
+  /* padding-right: 80px; */
+  /* margin-right: 200px; */
+  max-width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.step-content .title {
+  padding-bottom: 1rem;
+}
+
+.step-content .description {
+  padding-bottom: 1rem;
+}
+
+.step-content .btn {
+  border-radius: 10px;
+  border: 1px solid black;
+  color: black;
+  padding: 10px;
+  width: 110px;
+}
+
+.download-app .step:last-child {
+  border-right: none;
+}
+
+.download-app .step img {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.download-app .step h3 {
+  margin: 10px 0 5px;
+  text-align: left;
+}
+
+.download-app .step p {
+  margin: 0;
+  text-align: justify;
+}
+
+.sectionBreak {
+  border-top: 1px solid black;
+  margin: 0 0 20px 0;
+}
+
+@media (max-width: 767px) {
+  .download-app .steps {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .download-app .step {
+    border-right: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  .download-app .step:last-child {
+    border-bottom: none;
+  }
+}

@@ -1,0 +1,31 @@
+<div class="work-with-quickBite">
+  <div class="work-header">
+    <h2 id="heading">Work with Quick Bite</h2>
+    <span
+      *ngIf="!workWithQuickBite"
+      id="headingIcon"
+      (click)="toggleWorkWithQuickBite()"
+      ><i class="material-icons">expand_more</i></span
+    >
+    <span
+      *ngIf="workWithQuickBite"
+      id="headingIcon"
+      (click)="toggleWorkWithQuickBite()"
+      ><i class="material-icons">expand_less</i></span
+    >
+  </div>
+  <div *ngIf="workWithQuickBite" class="body" id="workWithQuickBiteBody">
+    <div class="steps">
+      <div class="step" *ngFor="let val of data">
+        <div class="step-image">
+          <img [src]="val.img" alt="Step 1" />
+        </div>
+        <div class="step-content">
+          <h3 class="title">{{ val.title }}</h3>
+          <p class="description">{{ val.description }}</p>
+          <div class="btn" type="div">{{ val.btn }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

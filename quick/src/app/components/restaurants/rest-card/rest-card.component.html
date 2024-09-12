@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-image">
+    <img [src]="imageUrl" [alt]="title" />
+    <div class="delivery-time">{{ deliveryTime }}</div>
+  </div>
+  <div class="card-content">
+    <h3>{{ title }}</h3>
+    <p>{{ description }}</p>
+  </div>
+  <div class="card-footer">
+    <div class="price">
+      <img [src]="carIcon" alt="Delivery" />
+      {{ deliveryprice }}
+    </div>
+    <div class="rating">
+      <span
+        *ngFor="let star of getRatingStars(); let i = index"
+        [ngClass]="{
+          bold: star === 'bold',
+          light: star === 'light',
+          'first-light':
+            star === 'light' && !getRatingStars().slice(0, i).includes('light')
+        }"
+      >
+        $
+      </span>
+    </div>
+  </div>
+</div>

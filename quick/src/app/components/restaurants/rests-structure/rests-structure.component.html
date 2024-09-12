@@ -1,0 +1,19 @@
+<div class="work-header" (click)="toggleSection(restInfo.heading)">
+  <h2 id="heading">{{ restInfo.heading }}</h2>
+  <span id="headingIcon">
+    <i class="material-icons">
+      {{ isSectionExpanded(restInfo.heading) ? "expand_less" : "expand_more" }}
+    </i>
+  </span>
+</div>
+<div class="rests" *ngIf="isSectionExpanded(restInfo.heading)">
+  <app-rest-card
+    *ngFor="let rest of restInfo.restaurants"
+    [imageUrl]="rest.imageUrl"
+    [title]="rest.title"
+    [description]="rest.description"
+    [deliveryprice]="rest.deliveryprice"
+    [deliveryTime]="rest.deliveryTime"
+    [rating]="rest.rating"
+  ></app-rest-card>
+</div>
