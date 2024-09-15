@@ -1,10 +1,10 @@
 .card {
   background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.937rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 370px;
-  height: 325px;
+  width: 23.12rem;
+  height: 20.3rem;
   font-family: "Arial", sans-serif;
 
   .card-image {
@@ -22,40 +22,40 @@
 
     img {
       display: block;
-      width: 336px;
+      width: 21rem;
       /* Restricts image width to 100% of the container */
-      height: 160px;
+      height: 13.75rem;
       /* Restricts image height to 100% of the container */
       object-fit: cover;
       /* Ensures image fits inside without being cropped */
 
-      border-radius: 12px;
+      border-radius: 0.75rem;
     }
 
     .delivery-time {
       position: absolute;
-      top: 25px;
-      right: 20px;
+      top: 1.562rem;
+      right: 1.25rem;
       background-color: rgb(255, 255, 255);
       color: #000000;
-      padding: 5px 10px;
-      border-radius: 10px;
-      font-size: 14px;
+      padding: 0.312rem 0.625rem;
+      border-radius: 0.625rem;
+      font-size: 0.875rem;
     }
   }
 
   .card-content {
-    padding: 15px;
+    padding: 0.937rem;
 
     h3 {
       margin: 0;
-      font-size: 18px;
+      font-size: 1.125rem;
       color: #333;
     }
 
     p {
-      margin: 5px 0 0;
-      font-size: 14px;
+      margin: 0.312rem 0 0;
+      font-size: 0.875rem;
       color: #777;
     }
   }
@@ -64,28 +64,28 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    border-top: 1px solid #eee;
+    padding: 0.937rem;
+    border-top: 0.06rem solid #eee;
 
     .price {
       display: flex;
       align-items: center;
 
       img {
-        width: 18px;
+        width: 1.125rem;
         height: auto;
-        margin-right: 5px;
+        margin-right: 0.312rem;
       }
 
       span {
-        font-size: 16px;
+        font-size: 1rem;
         color: #333;
       }
     }
 
     .rating {
       span {
-        font-size: 16px;
+        font-size: 1rem;
 
         &.bold {
           font-weight: bold;
@@ -98,9 +98,14 @@
         }
 
         &.first-light {
-          margin-left: 8px;
+          margin-left: 0.5rem;
         }
       }
     }
+  }
+}
+@media screen and (max-width: 768px) {
+  .card {
+    width: 20rem;
   }
 }

@@ -3,7 +3,9 @@
     <div
       class="header"
       [ngStyle]="
-        isPage1 ? { 'padding-bottom': '150px' } : { 'padding-bottom': '50px' }
+        isPage1
+          ? { 'padding-bottom': '9.375rem' }
+          : { 'padding-bottom': '3.125rem' }
       "
     >
       <div class="logo">QUICK BITE</div>
@@ -66,11 +68,11 @@
       <app-download-app></app-download-app>
     </ng-template>
     <ng-template #secondTemplate>
-      <div class="center-img">
-        <img
+      <div class="center-image">
+        <!-- <img
           id="centerImageStyle"
           src="https://assets.api.uizard.io/api/cdn/stream/3e60192b-b847-421b-a18e-a8aae54308bd.png"
-        />
+        /> -->
       </div>
       <div [ngClass]="isPage1 ? 'search-container' : 'left-shift-search'">
         <div class="input-group-append">
@@ -87,6 +89,29 @@
           </div>
         </div>
       </div>
+      <div class="filters">
+        <div
+          class="btn"
+          [ngClass]="{ active: selectedFilter === 'open' }"
+          (click)="selectFilter('open')"
+        >
+          open now
+        </div>
+        <div
+          class="btn"
+          [ngClass]="{ active: selectedFilter === 'delivery' }"
+          (click)="selectFilter('delivery')"
+        >
+          free delivery
+        </div>
+        <div
+          class="btn"
+          [ngClass]="{ active: selectedFilter === 'stars' }"
+          (click)="selectFilter('stars')"
+        >
+          5 stars
+        </div>
+      </div>
       <div *ngFor="let restInfo of restInfo">
         <app-rests-structure [restInfo]="restInfo"></app-rests-structure>
       </div>
@@ -101,3 +126,4 @@
 </div>
 
 <app-signup></app-signup>
+<app-footer></app-footer>

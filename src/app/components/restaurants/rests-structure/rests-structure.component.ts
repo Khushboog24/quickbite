@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class RestsStructureComponent {
   @Input() restInfo: any = [];
 
-  expandedSection: string | null = null;
+  expandedSection: string | null = 'New On QuickBite';
   // Toggles the section based on the heading
   toggleSection(heading: string) {
     if (this.expandedSection === heading) {

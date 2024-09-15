@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SignupComponent } from '../signup/signup.component';
+import { SignupComponent } from '../../components/signup/signup.component';
 import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   workWithQuickBite: boolean = true;
   isPage1: boolean = true;
   restInfo: any = [];
-
+  selectedFilter: string = '';
   constructor(private http: HttpClient) {}
   ngOnInit() {
     this.http
@@ -24,6 +24,9 @@ export class HomeComponent implements OnInit {
     this.isPage1 = !this.isPage1;
   }
 
+  selectFilter(filter: string) {
+    this.selectedFilter = filter;
+  }
   async openLoginModal() {
     // const modal = await this.modalController.create({
     //   component: SignupComponent,

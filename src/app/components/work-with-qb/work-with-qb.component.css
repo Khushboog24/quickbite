@@ -2,30 +2,30 @@
 .download-app {
   background-color: #edf0eb;
   width: 100%;
-  padding: 0 50px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  padding: 0 3.125rem;
+  border-top: 0.06rem solid black;
+  border-bottom: 0.06rem solid black;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* without this the padding will make the width 100% + 100px */
+  /* without this the padding will make the width 100% + 6.25rem */
   box-sizing: border-box;
 }
 
 .work-with-quickBite {
   background-color: #edf0eb;
   width: 100%;
-  margin: 0px 150px 0 0px;
+  margin: 0rem 9.375rem 0 0rem;
   box-sizing: border-box;
 }
 
 .work-with-quickBite .work-header {
-  /* border-top: 1px solid black; */
-  border-bottom: 1px solid black;
+  /* border-top: 0.06rem solid black; */
+  border-bottom: 0.06rem solid black;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 1.25rem 0;
 }
 
 .work-with-quickBite .work-header h2 {
@@ -44,8 +44,8 @@
 
 .work-with-quickBite .step {
   flex: 1;
-  padding: 15px 0px;
-  border-bottom: 2px solid black;
+  padding: 0.937rem 0rem;
+  border-bottom: 0.125rem solid black;
   display: flex;
 }
 
@@ -61,9 +61,9 @@
 }
 
 .step .step-content {
-  margin-left: 20px;
-  /* margin-right: 20px; */
-  width: 500px;
+  margin-left: 1.25rem;
+  /* margin-right: 1.25rem; */
+  width: 31.25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -78,11 +78,11 @@
 }
 
 .step-content .btn {
-  border-radius: 10px;
-  border: 1px solid black;
+  border-radius: 0.625rem;
+  border: 0.06rem solid black;
   color: black;
-  padding: 10px;
-  width: 110px;
+  padding: 0.625rem;
+  width: 8.125rem;
 }
 
 .work-with-quickBite .step:last-child {
@@ -93,11 +93,11 @@
   max-width: 50%;
   height: auto;
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto 1.25rem;
 }
 
 .work-with-quickBite .step h3 {
-  margin: 10px 0 5px;
+  margin: 0.625rem 0 0.312rem;
   text-align: left;
 }
 
@@ -107,8 +107,8 @@
 }
 
 .sectionBreak {
-  border-top: 1px solid black;
-  margin: 0 0 20px 0;
+  border-top: 0.06rem solid black;
+  margin: 0 0 1.25rem 0;
 }
 
 @media (max-width: 767px) {
@@ -119,8 +119,8 @@
 
   .work-with-quickBite .step {
     border-right: none;
-    border-bottom: 1px solid black;
-    margin-bottom: 20px;
+    border-bottom: 0.06rem solid black;
+    margin-bottom: 1.25rem;
     padding: 0;
   }
 

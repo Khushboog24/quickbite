@@ -1,0 +1,65 @@
+<div class="outer-container">
+  <div class="main-container">
+    <div class="container">
+      <div class="header" style="padding-bottom: 3.125rem">
+        <div class="logo">QUICK BITE</div>
+        <div class="buttons">
+          <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">
+          Sign Up
+        </button> -->
+
+          <button
+            class="signButtonLight btn btn-primary"
+            data-toggle="modal"
+            data-target="#signupModal"
+            (click)="openLoginModal()"
+          >
+            Sign in
+          </button>
+          <button class="signButton">Sign up</button>
+        </div>
+      </div>
+      <div class="center-image"></div>
+
+      <div class="heading">{{ title }}</div>
+      <div class="left-shift-search">
+        <div class="input-group-append">
+          <div class="icon-input">
+            <input
+              class="icon-input__text-field"
+              type="text"
+              placeholder="Delivery address"
+            />
+            <i class="icon-input__icon material-icons">search</i>
+            <button id="searchBtn" class="btn btn-primary" type="button">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="filters">
+        <div
+          class="btn"
+          [ngClass]="{ active: selectedFilter === 'popular' }"
+          (click)="selectFilter('popular')"
+        >
+          popular
+        </div>
+        <div *ngFor="let d of description" class="filter">
+          <div
+            class="btn"
+            [ngClass]="{ active: selectedFilter === d }"
+            (click)="selectFilter(d)"
+            style="text-transform: lowercase"
+          >
+            {{ d }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <app-rest-item title="Sandwiches" [items]="sandwiches"></app-rest-item> -->
+  <app-menu-section title="Sandwiches" [items]="sandwiches"></app-menu-section>
+  <app-menu-section title="Desserts" [items]="desserts"></app-menu-section>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,196 @@
+.main-container {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #edf0eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+.outer-container {
+  background-color: #edf0eb;
+}
+.container {
+  margin: 2.5rem 5rem 5rem 5rem;
+}
+
+.header {
+  background-color: #edf0eb;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 9.375rem;
+  box-sizing: border-box;
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00103d;
+}
+
+.header .buttons {
+  display: flex;
+  gap: 0.625rem;
+}
+
+.signButton {
+  border-radius: 0.625rem;
+  background-color: black;
+  color: white;
+  height: 2.375rem;
+  width: 6.25rem;
+}
+.signButtonLight {
+  border-radius: 0.625rem;
+  background-color: white;
+  color: black;
+  height: 2.375rem;
+  width: 6.25rem;
+}
+
+.header button.signup {
+  background-color: #00103d;
+  color: white;
+}
+
+.search-container {
+  display: flex;
+  // align-items: center;
+  gap: 0.625rem;
+  margin-top: 1.25rem;
+  position: relative;
+}
+
+.search-container input {
+  padding: 0.625rem 2.5rem 0.625rem 0.937rem;
+  font-size: 1rem;
+  border-radius: 0.625rem;
+  border: none;
+  width: 15.625rem;
+  position: relative;
+  box-shadow: none;
+  /* Ensure no box-shadow */
+  outline: none;
+  /* Remove default outline on focus */
+}
+
+.search-container #searchBtn {
+  left: 0.625rem;
+  border-radius: 0.625rem;
+  background-color: black;
+  color: white;
+  height: 2.375rem;
+  width: 6.25rem;
+}
+
+.search-container .icon-input__icon {
+  right: 7.5rem;
+  position: absolute;
+  color: #00103d;
+  top: 20%;
+}
+.center-image {
+  width: 100%;
+  height: 25rem;
+  position: relative;
+  visibility: visible;
+  background-image: url(https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDUzMDJ8MHwxfHNlYXJjaHw2fHxmb29kfGVufDF8fHx8MTYzOTE1MzMzOQ&ixlib=rb-1.2.1&q=80&w=1080);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: rgba(0, 0, 0, 0.08) 0rem 0rem 0rem;
+  border-radius: 0.75rem;
+  border: 0rem;
+}
+
+#centerImageStyle {
+  width: 100%;
+  height: 18.75rem;
+  /* Maintain aspect ratio */
+}
+.search-container .search-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+}
+
+.search-container button {
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 1.875rem;
+}
+.left-shift-search {
+  @extend .search-container;
+  align-items: center;
+  /* This will not be animated */
+  position: relative;
+  left: 0rem;
+
+  .icon-input__icon {
+    left: -1.875rem;
+    position: relative;
+    color: #00103d;
+    top: 20%;
+  }
+
+  .icon-input__text-field {
+    width: 25rem;
+  }
+}
+.filters {
+  display: flex;
+  align-items: start;
+  position: relative;
+  left: 0rem;
+  margin-top: 1.25rem;
+
+  .btn {
+    background-color: white;
+    color: black;
+    margin-right: 0.625rem;
+    border: none;
+    border-radius: 1.25rem;
+    font-size: 1rem;
+    border: 0.06rem solid black;
+    font-weight: 500;
+    // padding: 0.625rem 1.25rem;
+    cursor: pointer;
+  }
+
+  .btn.active {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+  }
+}
+.heading {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 4.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 0;
+    width: 100%;
+    padding: 2.5rem 0rem 0rem 1.25rem;
+    background-color: #edf0eb;
+  }
+  .left-shift-search {
+    .icon-input__text-field {
+      width: 15rem;
+      // display: none;
+    }
+  }
+  .filters {
+    .btn {
+      margin-right: 0.25rem;
+    }
+  }
+}

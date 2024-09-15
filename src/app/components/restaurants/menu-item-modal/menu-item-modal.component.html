@@ -1,0 +1,46 @@
+<!-- <div class="backdrop" (click)="closeModal()"></div> -->
+<div class="modal" id="foodModal">
+  <button class="close-btn" (click)="closeModal()">&#10006;</button>
+  <img class="modal-image" src="assets/sandwich.jpg" alt="Artichoke Sandwich" />
+
+  <div class="modal-content">
+    <h2>Artichoke Sandwich</h2>
+    <p class="price">$7.50</p>
+    <p>
+      Artichoke, spinach, vegan cheddar, and mushrooms. Vegan friendly option.
+    </p>
+
+    <h3>Toppings</h3>
+    <p>Choose up to 4 additional items:</p>
+
+    <div class="topping">
+      <input
+        type="checkbox"
+        id="avocado"
+        (change)="onToppingChange('Avocado', 1.5)"
+      />
+      <label for="avocado">Avocado (+$1.50)</label>
+    </div>
+
+    <div class="topping">
+      <input
+        type="checkbox"
+        id="chilli"
+        (change)="onToppingChange('Chilli peppers', 1.0)"
+      />
+      <label for="chilli">Chilli peppers (+$1.00)</label>
+    </div>
+
+    <p class="subtotal">Subtotal: {{ subtotal | currency }}</p>
+
+    <div class="quantity-control">
+      <button (click)="decrementQuantity()">-</button>
+      <span>{{ quantity }}</span>
+      <button (click)="incrementQuantity()">+</button>
+    </div>
+
+    <button class="add-to-order-btn" (click)="addToOrder()">
+      Add to Order
+    </button>
+  </div>
+</div>

@@ -5,34 +5,34 @@
   box-sizing: border-box;
   background-color: #b9c8b4;
   /* Light green background color */
-  padding-top: 20px;
-  padding-bottom: 40px;
+  padding-top: 1.25rem;
+  padding-bottom: 2.5rem;
 }
 
 .footer-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 50px;
+  padding: 0 3.125rem;
 }
 
 .footer-section {
   flex: 1;
-  margin-right: 20px;
+  margin-right: 1.25rem;
 }
 
 .footer-title {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #1a1a1a;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .footer-subtitle {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: bold;
   color: #1a1a1a;
-  margin: 0px;
+  margin: 0rem;
 }
 
 .footer-section ul {
@@ -42,7 +42,7 @@
 }
 
 .footer-section ul li {
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .footer-section ul li a {
@@ -61,6 +61,6 @@
   }
 
   .footer-section {
-    padding-bottom: 20px;
+    padding-bottom: 1.25rem;
   }
 }

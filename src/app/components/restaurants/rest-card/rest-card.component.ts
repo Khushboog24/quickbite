@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rest-card',
@@ -16,6 +17,9 @@ export class RestCardComponent {
   carIcon: string = this.base_img + 'car.svg';
   @Input() deliveryTime: string = '25-35min';
   @Input() rating: number = 3;
+
+  constructor(private router: Router) {}
+
   getRatingStars(): string[] {
     // Generate an array of dollar signs
     const stars = [];
@@ -23,5 +27,14 @@ export class RestCardComponent {
       stars.push(i < this.rating ? 'bold' : 'light');
     }
     return stars;
+  }
+  navigateToDetails() {
+    console.log('hi');
+    this.router.navigate(['/rest']).then(() => {
+      history.replaceState(
+        { title: this.title, description: this.description },
+        ''
+      ); // Use replaceState to set state without adding a new history entry
+    });
   }
 }

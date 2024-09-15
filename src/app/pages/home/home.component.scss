@@ -11,14 +11,14 @@
 }
 
 .container {
-  margin: 40px 80px 80px 80px;
+  margin: 2.5rem 5rem 5rem 5rem;
 }
 
 @media screen and (max-width: 768px) {
   .container {
     margin: 0;
-    width: 104%;
-    padding: 40px 0px 80px 20px;
+    width: 100%;
+    padding: 2.5rem 0rem 5rem 0rem;
     background-color: #edf0eb;
   }
 }
@@ -28,7 +28,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 150px;
+  padding-bottom: 9.375rem;
   box-sizing: border-box;
 }
 
@@ -40,23 +40,23 @@
 
 .header .buttons {
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .signButton {
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background-color: black;
   color: white;
-  height: 38px;
-  width: 100px;
+  height: 2.375rem;
+  width: 6.25rem;
 }
 
 .signButtonLight {
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background-color: white;
   color: black;
-  height: 38px;
-  width: 100px;
+  height: 2.375rem;
+  width: 6.25rem;
 }
 
 .header button.signup {
@@ -75,26 +75,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 2.5rem;
   /* Increase gap between elements */
   position: relative;
 }
 
 .center-image {
   width: 100%;
-  height: auto;
-  position: absolute;
+  height: 25rem;
+  position: relative;
+  visibility: visible;
+  background-image: url(https://assets.api.uizard.io/api/cdn/stream/3e60192b-b847-421b-a18e-a8aae54308bd.png);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: rgba(0, 0, 0, 0.08) 0rem 0rem 0rem;
+  border-radius: 0.75rem;
+  border: 0rem;
 }
 
 #centerImageStyle {
-  width: 1000px;
-  height: auto;
+  width: 60rem;
+  // height: auto;
   /* Maintain aspect ratio */
 }
 
 .left-image {
   position: absolute;
-  left: -180px;
+  left: -15rem;
   /* Adjust this value as needed */
   top: 20%;
   /* Center vertically */
@@ -103,21 +111,21 @@
 }
 
 #leftImageStyle {
-  width: 150px;
+  width: 9.375rem;
   height: auto;
   /* Maintain aspect ratio */
 }
 
 .right-image {
   position: absolute;
-  right: -200px;
+  right: -12.5rem;
   /* Adjust this value as needed */
-  top: 70px;
+  top: 4.375rem;
   /* Adjust this value as needed */
 }
 
 #rightImageStyle {
-  width: 150px;
+  width: 9.375rem;
   height: auto;
   /* Maintain aspect ratio */
 }
@@ -132,7 +140,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .text h1 {
@@ -141,23 +149,23 @@
   margin: 0;
   text-align: center;
   line-height: 1.2;
-  width: 400px;
+  width: 25rem;
 }
 
 .search-container {
   display: flex;
   // align-items: center;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 0.625rem;
+  margin-top: 1.25rem;
   position: relative;
 }
 
 .search-container input {
-  padding: 10px 40px 10px 15px;
+  padding: 0.625rem 2.5rem 0.625rem 0.937rem;
   font-size: 1rem;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   border: none;
-  width: 250px;
+  width: 15.625rem;
   position: relative;
   box-shadow: none;
   /* Ensure no box-shadow */
@@ -166,16 +174,16 @@
 }
 
 .search-container #searchBtn {
-  left: 10px;
-  border-radius: 10px;
+  left: 0.625rem;
+  border-radius: 0.625rem;
   background-color: black;
   color: white;
-  height: 38px;
-  width: 100px;
+  height: 2.375rem;
+  width: 6.25rem;
 }
 
 .search-container .icon-input__icon {
-  right: 120px;
+  right: 7.5rem;
   position: absolute;
   color: #00103d;
   top: 20%;
@@ -193,12 +201,91 @@
   color: white;
   font-size: 1rem;
   cursor: pointer;
-  border-radius: 30px;
+  border-radius: 1.875rem;
 }
 
 .left-shift-search {
   @extend .search-container;
   align-items: center; /* This will not be animated */
   position: relative;
-  left: 75px;
+  // left: 4.68rem;
+  .icon-input__icon {
+    left: -1.875rem;
+    position: relative;
+    color: #00103d;
+    top: 20%;
+  }
+  .icon-input__text-field {
+    width: 25rem;
+  }
+}
+.filters {
+  display: flex;
+  align-items: start;
+  position: relative;
+  // left: 4.68rem;
+  margin-top: 1.25rem;
+  .btn {
+    background-color: white;
+    color: black;
+    margin-right: 0.625rem;
+    border: none;
+    border-radius: 1.25rem;
+    font-size: 1rem;
+    border: 0.06rem solid black;
+    font-weight: 500;
+    // padding: 0.625rem 1.25rem;
+    cursor: pointer;
+  }
+
+  .btn.active {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+  }
+
+  .left-image,
+  .right-image {
+    display: none; /* Optionally hide one or both images */
+  }
+
+  .text {
+    margin-top: 1.25rem;
+  }
+  // .center-image {
+  #centerImageStyle {
+    width: 20rem;
+    // display: none;
+  }
+  .left-shift-search {
+    justify-content: center;
+    .icon-input__text-field {
+      width: 15rem;
+    }
+    .icon-input {
+      display: flex;
+      #searchBtn {
+        left: -1rem;
+        border-radius: 0.625rem;
+        background-color: black;
+        color: white;
+        height: 2.375rem;
+        width: 5rem;
+      }
+    }
+  }
+  .main-container {
+    text-align: left;
+  }
+  .filters {
+    justify-content: center;
+  }
 }
