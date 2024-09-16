@@ -1,0 +1,45 @@
+<div class="cart-container">
+  <div class="header">
+    <h2 class="cart-title">Shopping cart</h2>
+    <div class="minimize-icon" (click)="toggleCart()">
+      -
+      <!-- Font Awesome icon for minimize -->
+    </div>
+  </div>
+  <hr />
+
+  <div class="cart-item" *ngFor="let item of items; let i = index">
+    <div class="item-details">
+      <span class="item-name">{{ item.title }}</span>
+      <span class="item-price">${{ item.price.toFixed(2) }}</span>
+    </div>
+
+    <div class="quantity-controls">
+      <label for="quantity">Quantity</label>
+      <div class="quantity-buttons">
+        <button (click)="decrementQuantity(i)">−</button>
+        <span>{{ item.quantity }}</span>
+        <button (click)="incrementQuantity(i)">+</button>
+      </div>
+    </div>
+
+    <hr />
+  </div>
+
+  <div class="price-details">
+    <div>
+      <span>Subtotal</span>
+      <span>${{ subtotal.toFixed(2) }}</span>
+    </div>
+    <div>
+      <span>Delivery fee</span>
+      <span>${{ deliveryFee.toFixed(2) }}</span>
+    </div>
+    <div class="total">
+      <span>Total</span>
+      <span class="total-amount">${{ total.toFixed(2) }}</span>
+    </div>
+  </div>
+
+  <button class="checkout-button">Checkout</button>
+</div>

@@ -175,6 +175,18 @@
   .search-input {
     width: 70%;
   }
+
+  .text-content {
+    padding-right: 0.15rem;
+  }
+
+  .image-content {
+    height: 7rem;
+
+    img {
+      height: 7rem;
+    }
+  }
 }
 
 /* For mobile */

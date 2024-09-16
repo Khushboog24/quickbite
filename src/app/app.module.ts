@@ -24,6 +24,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RestItemComponent } from './components/restaurants/rest-item/rest-item.component';
 import { MenuSectionComponent } from './components/restaurants/menu-section/menu-section.component';
 import { MenuItemModalComponent } from './components/restaurants/menu-item-modal/menu-item-modal.component';
+import { ShoppingCartComponent } from './components/restaurants/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MenuItemModalComponent } from './components/restaurants/menu-item-modal
     RestItemComponent,
     MenuSectionComponent,
     MenuItemModalComponent,
+    ShoppingCartComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule], // Add HttpClientModule to the imports array
   providers: [provideClientHydration()],

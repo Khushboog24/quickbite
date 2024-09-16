@@ -58,8 +58,14 @@
       </div>
     </div>
   </div>
-  <!-- <app-rest-item title="Sandwiches" [items]="sandwiches"></app-rest-item> -->
-  <app-menu-section title="Sandwiches" [items]="sandwiches"></app-menu-section>
-  <app-menu-section title="Desserts" [items]="desserts"></app-menu-section>
+  <div style="display: flex">
+    <div [ngClass]="isCartTrue ? 'cart-visible' : 'cart-notvisible'">
+      <app-menu-section [items]="restaurantData"></app-menu-section>
+    </div>
+
+    <div *ngIf="isCartTrue" class="cart-container">
+      <app-shopping-cart></app-shopping-cart>
+    </div>
+  </div>
+  <app-footer></app-footer>
 </div>
-<app-footer></app-footer>

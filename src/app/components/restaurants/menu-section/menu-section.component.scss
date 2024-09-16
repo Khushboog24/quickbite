@@ -1,0 +1,44 @@
+.main-container {
+  width: 100%; /* Default full width */
+  display: block;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.menu-section {
+  width: 100%; /* Full width by default */
+  margin-bottom: 1.875rem;
+  padding: 2.5rem 5rem 5rem 5rem;
+  transition: width 0.3s ease; /* Smooth width transition */
+}
+
+.small-menu-section {
+  width: 70%; /* Width reduced when cart is present */
+}
+
+.cart-container {
+  display: none; /* Hidden by default */
+  width: 30%;
+  min-width: 300px;
+}
+
+.cart-visible .cart-container {
+  display: block; /* Show cart when needed */
+}
+
+@media screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .menu-section,
+  .small-menu-section {
+    width: 100%;
+    padding: 2.5rem 1.25rem 5rem 1.25rem;
+  }
+
+  .cart-container {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}

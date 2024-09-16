@@ -1,6 +1,15 @@
-<div class="menu-section">
-  <h2 class="menu-title">{{ title }}</h2>
+<!-- <div [ngClass]="isCartTrue ? 'cart-visible' : 'main-container'"> -->
+<div *ngFor="let section of items" class="menu-section">
+  <h2 class="menu-title">{{ section.heading }}</h2>
   <div class="menu-items">
-    <app-rest-item *ngFor="let item of items" [item]="item"></app-rest-item>
+    <app-rest-item
+      *ngFor="let item of section.data"
+      [item]="item"
+    ></app-rest-item>
   </div>
 </div>
+
+<!-- <div *ngIf="isCartTrue" class="cart-container">
+    <app-shopping-cart></app-shopping-cart>
+  </div> -->
+<!-- </div> -->
