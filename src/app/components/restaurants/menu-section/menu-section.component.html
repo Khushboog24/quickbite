@@ -1,15 +1,20 @@
-<!-- <div [ngClass]="isCartTrue ? 'cart-visible' : 'main-container'"> -->
-<div *ngFor="let section of items" class="menu-section">
-  <h2 class="menu-title">{{ section.heading }}</h2>
-  <div class="menu-items">
+<div
+  *ngFor="let section of items"
+  class="menu-section"
+  (click)="toggleSection(section.heading)"
+>
+  <div class="header">
+    <h2 class="menu-title">{{ section.heading }}</h2>
+    <span id="headingIcon">
+      <i class="material-icons">
+        {{ isSectionExpanded(section.heading) ? "expand_less" : "expand_more" }}
+      </i>
+    </span>
+  </div>
+  <div class="menu-items" *ngIf="isSectionExpanded(section.heading)">
     <app-rest-item
       *ngFor="let item of section.data"
       [item]="item"
     ></app-rest-item>
   </div>
 </div>
-
-<!-- <div *ngIf="isCartTrue" class="cart-container">
-    <app-shopping-cart></app-shopping-cart>
-  </div> -->
-<!-- </div> -->

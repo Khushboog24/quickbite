@@ -144,6 +144,7 @@
 
 .image-content img {
   width: 21.5rem;
+  height: 13rem;
   border-radius: 0.5rem;
 }
 
@@ -189,6 +190,15 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .image-content img {
+    /* width: 9rem; */
+    width: 12.5rem;
+    height: 9rem;
+  }
+
+}
+
 /* For mobile */
 @media (max-width: 45rem) {
   .search-input {
@@ -206,6 +216,7 @@
 
   .image-content img {
     width: 10rem;
+    height: 6rem;
   }
 
   .filter-btn {

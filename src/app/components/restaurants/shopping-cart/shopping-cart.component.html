@@ -1,9 +1,22 @@
-<div class="cart-container">
+<div
+  class="cart-container"
+  [ngStyle]="{ height: isCartVisible ? 'auto' : '4rem' }"
+>
   <div class="header">
     <h2 class="cart-title">Shopping cart</h2>
-    <div class="minimize-icon" (click)="toggleCart()">
-      -
-      <!-- Font Awesome icon for minimize -->
+    <div
+      class="maximize-icon icon"
+      *ngIf="!isCartVisible"
+      (click)="toggleCart('maximize')"
+    >
+      <i class="material-icons">open_in_full</i>
+    </div>
+    <div
+      class="minimize-icon icon"
+      *ngIf="isCartVisible"
+      (click)="toggleCart('minimize')"
+    >
+      <i class="material-icons">close_fullscreen</i>
     </div>
   </div>
   <hr />

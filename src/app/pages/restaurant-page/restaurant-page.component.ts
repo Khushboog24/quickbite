@@ -5,6 +5,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { UserContextService } from '../../services/user-context.service';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-restaurant-page',
@@ -87,13 +88,21 @@ export class RestaurantPageComponent {
       ],
     },
   ];
-  constructor(private usercontext: UserContextService) {}
+  constructor(
+    private usercontext: UserContextService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    const state = history.state as { title?: string; description?: any };
-    this.title = state.title;
-    this.description = state.description.split(',');
+    this.route.queryParams.subscribe((params) => {
+      this.title = params['title'] || '';
+      this.description = params['description']
+        ? params['description'].split(',')
+        : [];
+    });
+
     console.log('items', this.restaurantData);
+
     // Subscribe to cart items changes and log them
     this.cartSubscription = this.usercontext.cartItems$.subscribe(
       (cartItems) => {

@@ -104,8 +104,13 @@
     }
   }
 }
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 15rem;
+  }
+}
 @media screen and (max-width: 768px) {
   .card {
-    width: 20rem;
+    width: 18rem;
   }
 }

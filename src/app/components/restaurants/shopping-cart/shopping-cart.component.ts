@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserContextService } from '../../../services/user-context.service';
 import { Subscription } from 'rxjs';
+import { stat } from 'node:fs';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -74,8 +75,8 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   private updateCart(): void {
     this.usercontext.setCartItems(this.items);
   }
-  toggleCart() {
-    // Logic to minimize the cart, e.g., toggle a boolean value
-    this.isCartVisible = !this.isCartVisible;
+  toggleCart(status: any) {
+    console.log('toggleCart', status); // Check what status is received
+    this.isCartVisible = !this.isCartVisible; // Toggles visibility state
   }
 }

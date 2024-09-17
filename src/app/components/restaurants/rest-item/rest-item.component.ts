@@ -19,7 +19,8 @@ export class RestItemComponent {
   closeModal() {
     this.isModalOpen = false; // Set this to false when the modal should close
   }
-  cartTrue() {
+  cartTrue(event: Event) {
+    event.stopPropagation();
     console.log('hi');
     this.usercontext.addItemToCart(this.item);
   }
