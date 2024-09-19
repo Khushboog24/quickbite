@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserContextService } from '../../../services/user-context.service';
 
 @Component({
   selector: 'app-rest-card',
@@ -17,8 +19,12 @@ export class RestCardComponent {
   carIcon: string = this.base_img + 'car.svg';
   @Input() deliveryTime: string = '25-35min';
   @Input() rating: number = 3;
-
-  constructor(private router: Router) {}
+  menuData: any = [];
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private usercontext: UserContextService
+  ) {}
 
   getRatingStars(): string[] {
     // Generate an array of dollar signs
@@ -28,13 +34,47 @@ export class RestCardComponent {
     }
     return stars;
   }
-  navigateToDetails() {
+  navigateToDetails(title: any) {
     console.log('hi');
-    this.router.navigate(['/rest']).then(() => {
-      history.replaceState(
-        { title: this.title, description: this.description },
-        ''
-      ); // Use replaceState to set state without adding a new history entry
-    });
+
+    this.http
+      .get('http://localhost:4000/api/menus/getRestaurantWithMenu', {
+        params: { query: title },
+      })
+      .subscribe({
+        next: (data: any) => {
+          console.log('data', data);
+          this.menuData = data;
+          console.log('menuData', this.menuData, data);
+
+          // Set the menu items and then navigate
+
+          this.menuData.restaurants.forEach((element: any) => {
+            if (element.title === title) {
+              console.log('element', element);
+              element.menuId.deliveryprice = this.deliveryprice;
+              this.usercontext.setMenuItemsOfRests(element.menuId);
+            }
+          });
+          // this.usercontext.setMenuItemsOfRests(this.menuData);
+
+          // Navigate to the desired route after setting the menu data
+          this.router.navigate(['/rest']).then(() => {
+            // Update history state after navigation
+            history.replaceState(
+              { title: this.title, description: this.description },
+              ''
+            );
+          });
+        },
+        error: (error) => {
+          // Handle error if needed
+          console.error('Error fetching data', error);
+        },
+        complete: () => {
+          // Any final actions if needed
+          console.log('HTTP request completed');
+        },
+      });
   }
 }

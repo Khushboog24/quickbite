@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class UserContextService {
   private cartItemsSubject = new BehaviorSubject<any[]>([]); // Array of cart items
   cartItems$ = this.cartItemsSubject.asObservable(); // Expose it as an observable
-
+  private restaurantData: any = [];
   // Get the current value of cart items
   getCartItems() {
     return this.cartItemsSubject.value;
@@ -36,5 +36,22 @@ export class UserContextService {
       const newItem = { ...item, quantity: 1 };
       this.cartItemsSubject.next([...currentItems, newItem]);
     }
+  }
+
+  setRestaurant(restaurant: any) {
+    this.restaurantData = restaurant;
+  }
+
+  getRestaurant() {
+    return this.restaurantData;
+  }
+
+  setMenuItemsOfRests(items: any) {
+    this.restaurantData.menuItems = items;
+    console.log('Menu Items:', this.restaurantData.menuItems, items);
+  }
+
+  getMenuItemsOfRests() {
+    return this.restaurantData.menuItems;
   }
 }

@@ -1,46 +1,53 @@
 <!-- <div class="backdrop" (click)="closeModal()"></div> -->
 <div class="modal" id="foodModal">
-  <button class="close-btn" (click)="closeModal()">&#10006;</button>
-  <img class="modal-image" src="assets/sandwich.jpg" alt="Artichoke Sandwich" />
-
+  <div class="header" style="display: flex">
+    <img
+      class="modal-image"
+      [src]="item.image"
+      alt="Artichoke Sandwich"
+    /><button class="close-btn" (click)="closeModal()">&#10006;</button>
+  </div>
   <div class="modal-content">
-    <h2>Artichoke Sandwich</h2>
-    <p class="price">$7.50</p>
+    <h2>{{ item.name }}</h2>
+    <p class="price">${{ item.price }}</p>
     <p>
-      Artichoke, spinach, vegan cheddar, and mushrooms. Vegan friendly option.
+      {{ item.desc }}
     </p>
-
+    <div class="sectionDivider"></div>
     <h3>Toppings</h3>
     <p>Choose up to 4 additional items:</p>
 
-    <div class="topping">
-      <input
-        type="checkbox"
-        id="avocado"
-        (change)="onToppingChange('Avocado', 1.5)"
-      />
-      <label for="avocado">Avocado (+$1.50)</label>
+    <div class="topping" *ngFor="let topping of toppings">
+      <div class="topping-content">
+        <label class="checkbox-contain">
+          <input
+            type="checkbox"
+            class="checkbox"
+            (click)="changeshowcheck(topping)"
+          />
+          <span class="checkmark"></span>
+          <i *ngIf="topping.checked" class="material-icons icon">done</i>
+        </label>
+        <label for="avocado">{{ topping.name }}</label>
+      </div>
+      <div class="topping-price">+{{ topping.price }}</div>
     </div>
 
-    <div class="topping">
-      <input
-        type="checkbox"
-        id="chilli"
-        (change)="onToppingChange('Chilli peppers', 1.0)"
-      />
-      <label for="chilli">Chilli peppers (+$1.00)</label>
+    <div class="sectionDivider"></div>
+    <div class="displayFlex">
+      <div class="subtotal">Subtotal</div>
+      <div style="margin-left: auto">{{ subtotal }}</div>
     </div>
+    <div class="displayFlex">
+      <div class="quantity-control">
+        <button class="btn" (click)="decrementQuantity()">-</button>
+        <span>{{ quantity }}</span>
+        <button class="btn" (click)="incrementQuantity()">+</button>
+      </div>
 
-    <p class="subtotal">Subtotal: {{ subtotal | currency }}</p>
-
-    <div class="quantity-control">
-      <button (click)="decrementQuantity()">-</button>
-      <span>{{ quantity }}</span>
-      <button (click)="incrementQuantity()">+</button>
+      <button class="add-to-order-btn" (click)="addToOrder()">
+        Add to Order
+      </button>
     </div>
-
-    <button class="add-to-order-btn" (click)="addToOrder()">
-      Add to Order
-    </button>
   </div>
 </div>

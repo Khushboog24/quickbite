@@ -61,7 +61,7 @@
   <div class="padding2halfrem"></div>
   <div class="displayFlex">
     <div [ngClass]="isCartTrue ? 'cart-visible' : 'cart-notvisible'">
-      <app-menu-section [items]="restaurantData"></app-menu-section>
+      <app-menu-section [items]="restaurantData.menuData"></app-menu-section>
     </div>
 
     <div *ngIf="isCartTrue" class="cart-container">

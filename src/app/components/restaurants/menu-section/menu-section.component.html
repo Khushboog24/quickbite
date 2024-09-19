@@ -1,9 +1,5 @@
-<div
-  *ngFor="let section of items"
-  class="menu-section"
-  (click)="toggleSection(section.heading)"
->
-  <div class="header">
+<div *ngFor="let section of items" class="menu-section">
+  <div class="header" (click)="toggleSection(section.heading)">
     <h2 class="menu-title">{{ section.heading }}</h2>
     <span id="headingIcon">
       <i class="material-icons">
@@ -13,8 +9,9 @@
   </div>
   <div class="menu-items" *ngIf="isSectionExpanded(section.heading)">
     <app-rest-item
-      *ngFor="let item of section.data"
+      *ngFor="let item of section.menuItems"
       [item]="item"
+      [menuItems]="section"
     ></app-rest-item>
   </div>
 </div>

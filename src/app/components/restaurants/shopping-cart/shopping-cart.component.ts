@@ -1,7 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { UserContextService } from '../../../services/user-context.service';
 import { Subscription } from 'rxjs';
-import { stat } from 'node:fs';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -13,6 +12,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   deliveryFee: number = 3.26;
   cartSubscription: Subscription | null = null; // Subscription to cart items
   isCartVisible: boolean = false; // Whether the cart is visible or not
+
   constructor(private usercontext: UserContextService) {}
 
   ngOnInit() {
@@ -35,6 +35,9 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     }));
 
     console.log('Initial cart items:', this.items);
+
+    // Set cart visibility based on screen size
+    this.checkScreenSize();
   }
 
   ngOnDestroy() {
@@ -68,15 +71,39 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     if (this.items[index].quantity > 1) {
       this.items[index].quantity--;
       this.updateCart();
+    } else {
+      // Remove item if quantity is
+
+      this.removeItem(index);
     }
   }
-
+  removeItem(index: number): void {
+    this.items.splice(index, 1);
+    this.updateCart();
+  }
   // Update the cart with the new items list
   private updateCart(): void {
     this.usercontext.setCartItems(this.items);
   }
+
   toggleCart(status: any) {
     console.log('toggleCart', status); // Check what status is received
     this.isCartVisible = !this.isCartVisible; // Toggles visibility state
+  }
+
+  // Listen for window resize events to adjust cart visibility dynamically
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkScreenSize();
+  }
+
+  // Check screen size and adjust cart visibility
+  private checkScreenSize(): void {
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 768) {
+      this.isCartVisible = false; // Minimize cart by default on mobile
+    } else {
+      this.isCartVisible = true; // Maximize cart on larger screens
+    }
   }
 }

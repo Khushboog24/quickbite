@@ -1,5 +1,9 @@
 <div
   class="cart-container"
+  [ngClass]="{
+    'cart-visible': isCartVisible,
+    'cart-notvisible': !isCartVisible
+  }"
   [ngStyle]="{ height: isCartVisible ? 'auto' : '4rem' }"
 >
   <div class="header">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupComponent } from '../../components/signup/signup.component';
 import { HttpClient } from '@angular/common/http';
+import { UserContextService } from '../../services/user-context.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +13,10 @@ export class HomeComponent implements OnInit {
   isPage1: boolean = true;
   restInfo: any = [];
   selectedFilter: string = '';
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private usercontext: UserContextService
+  ) {}
   ngOnInit() {
     this.http
       .get('http://localhost:4000/api/restaurants/getData')
@@ -20,6 +24,7 @@ export class HomeComponent implements OnInit {
         console.log('data', data);
         this.restInfo = data.data;
       });
+    this.usercontext.setRestaurant(this.restInfo);
     console.log('restInfo', this.restInfo);
     this.isPage1 = !this.isPage1;
   }
