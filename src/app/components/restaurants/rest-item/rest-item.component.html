@@ -16,11 +16,11 @@
 </div>
 
 <!-- Conditionally render the modal -->
-<div *ngIf="isModalOpen" class="modal-backdrop" (click)="closeModal()">
+<div *ngIf="isModalOpen" class="modal-backdrop" (click)="closeModal($event)">
   <app-menu-item-modal
     [item]="item"
     [toppings]="menuItems.toppings"
-    (close)="closeModal()"
+    (close)="closeModal($event)"
     (click)="$event.stopPropagation()"
   ></app-menu-item-modal>
 </div>

@@ -43,11 +43,21 @@ hr {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
+  .item-name {
+    font-weight: bold;
+    font-size: 1rem;
+  }
 }
-
-.item-name {
-  font-weight: bold;
-  font-size: 1rem;
+.topping-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.4rem;
+  .item-name {
+    // font-weight: bold;
+    padding-left: 0.5rem;
+    font-size: 0.8rem;
+  }
 }
 
 .item-price {

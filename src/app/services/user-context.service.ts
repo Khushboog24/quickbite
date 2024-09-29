@@ -22,7 +22,7 @@ export class UserContextService {
   addItemToCart(item: any) {
     const currentItems = this.cartItemsSubject.value;
     const existingItemIndex = currentItems.findIndex(
-      (cartItem) => cartItem.title === item.title
+      (cartItem) => cartItem.name === item.name && cartItem.price === item.price
     );
 
     if (existingItemIndex !== -1) {

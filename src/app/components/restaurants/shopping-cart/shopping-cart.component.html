@@ -27,10 +27,13 @@
 
   <div class="cart-item" *ngFor="let item of items; let i = index">
     <div class="item-details">
-      <span class="item-name">{{ item.title }}</span>
-      <span class="item-price">${{ item.price.toFixed(2) }}</span>
+      <span class="item-name">{{ item.name }}</span>
+      <span class="item-price">${{ item.price }}</span>
     </div>
-
+    <div class="topping-details" *ngFor="let topping of item.toppings">
+      <span class="item-name">{{ topping.name }}</span>
+      <!-- <span class="item-price">${{ topping.price }}</span> -->
+    </div>
     <div class="quantity-controls">
       <label for="quantity">Quantity</label>
       <div class="quantity-buttons">
@@ -50,11 +53,11 @@
     </div>
     <div>
       <span>Delivery fee</span>
-      <span>${{ deliveryFee.toFixed(2) }}</span>
+      <span>${{ (deliveryFee) }}</span>
     </div>
     <div class="total">
       <span>Total</span>
-      <span class="total-amount">${{ total.toFixed(2) }}</span>
+      <span class="total-amount">${{ (total).toFixed(2) }}</span>
     </div>
   </div>
 

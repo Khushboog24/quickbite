@@ -20,6 +20,7 @@ export class RestaurantPageComponent {
   cartItems: any = [];
   cartSubscription: Subscription | null = null; // Subscription to cart items
   restaurantData: any = [];
+  deliveryfee: number = 3.26;
   constructor(
     private usercontext: UserContextService,
     private route: ActivatedRoute
@@ -34,7 +35,7 @@ export class RestaurantPageComponent {
         ? params['description'].split(',')
         : [];
     });
-
+    this.deliveryfee = this.restaurantData.deliveryprice.split('$')[1];
     console.log('items', this.restaurantData);
 
     // Subscribe to cart items changes and log them

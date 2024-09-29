@@ -22,11 +22,13 @@ export class RestItemComponent implements OnInit {
     console.log('Modal Open State:', this.isModalOpen);
   }
 
-  closeModal() {
+  closeModal(close: any) {
+    console.log('hi');
     this.isModalOpen = false; // Closes the modal
   }
 
   cartTrue() {
+    console.log('Cart True', this.item);
     this.usercontext.addItemToCart(this.item); // Adds the item to the cart
   }
 }

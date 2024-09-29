@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
 import { UserContextService } from '../../../services/user-context.service';
 import { Subscription } from 'rxjs';
 
@@ -8,8 +8,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./shopping-cart.component.scss'],
 })
 export class ShoppingCartComponent implements OnInit, OnDestroy {
+  @Input() deliveryFee: number = 3.26;
   items: any[] = [];
-  deliveryFee: number = 3.26;
   cartSubscription: Subscription | null = null; // Subscription to cart items
   isCartVisible: boolean = false; // Whether the cart is visible or not
 
@@ -29,10 +29,10 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     );
 
     // Initial load of cart items
-    this.items = this.usercontext.getCartItems().map((item: any) => ({
-      ...item,
-      quantity: item.quantity || 1, // Ensure default quantity
-    }));
+    // this.items = this.usercontext.getCartItems().map((item: any) => ({
+    //   ...item,
+    //   quantity: item.quantity || 1, // Ensure default quantity
+    // }));
 
     console.log('Initial cart items:', this.items);
 
@@ -57,7 +57,8 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 
   // Calculate total by adding delivery fee to subtotal
   get total(): number {
-    return this.subtotal + this.deliveryFee;
+    console.log('subtotal', this.subtotal, 'deliveryFee', this.deliveryFee);
+    return (Number)(this.subtotal) + (Number)(this.deliveryFee);
   }
 
   // Increment quantity for a specific item

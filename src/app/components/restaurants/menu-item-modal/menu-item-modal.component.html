@@ -5,7 +5,7 @@
       class="modal-image"
       [src]="item.image"
       alt="Artichoke Sandwich"
-    /><button class="close-btn" (click)="closeModal()">&#10006;</button>
+    /><button class="close-btn" (click)="closeModal($event)">&#10006;</button>
   </div>
   <div class="modal-content">
     <h2>{{ item.name }}</h2>

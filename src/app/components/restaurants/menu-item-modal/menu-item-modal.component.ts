@@ -11,7 +11,7 @@ export class MenuItemModalComponent {
   @Input() item: any; // Receives the item from the parent component
   @Output() close = new EventEmitter<void>(); // Event to emit when closing the modal
   showcheck: boolean = false;
-  subtotal: number = 0; // Assuming base price of $7.50
+  subtotal: number = 0;
   quantity: number = 1;
   @Input() toppings: {
     name: string;
@@ -25,6 +25,7 @@ export class MenuItemModalComponent {
   constructor(private usercontext: UserContextService) {}
   ngOnInit() {
     console.log('Item:', this.item);
+    this.subtotal = (Number)(this.item.price);
     const data = this.usercontext.getMenuItemsOfRests();
     console.log('data:', data);
   }
@@ -33,12 +34,12 @@ export class MenuItemModalComponent {
       if (t.name === topping.name) t.checked = !t.checked;
     });
     this.showcheck = !this.showcheck;
-    this.onToppingChange(topping.name, topping.price);
+    this.onToppingChange(topping.name, (Number)(topping.price));
     console.log('showcheck:', this.showcheck);
   }
   onToppingChange(topping: string, price: any) {
     const index = this.addedToppings.findIndex((t) => t.name === topping);
-    price = price.split('$')[1];
+    console.log(price);
     if (index === -1 && this.addedToppings.length < this.maxToppings) {
       this.addedToppings.push({ name: topping, price });
       console.log('Added Toppings:', this.subtotal, price);
@@ -64,11 +65,28 @@ export class MenuItemModalComponent {
   addToOrder() {
     console.log('Item added to order with quantity:', this.quantity);
     console.log('Toppings:', this.addedToppings);
-    this.usercontext.setCartItems(this.addedToppings);
+    let obj = {
+      ...this.item,
+      quantity: this.quantity,
+      toppings: this.addedToppings,
+      price: this.subtotal
+    };
+    this.usercontext.addItemToCart(obj);
     console.log('Subtotal:', this.usercontext.getCartItems());
+    this.closeModal();
   }
 
-  closeModal() {
-    this.close.emit(); // Emit close event to the parent component
+  closeModal(event?:any) {
+    console.log('close');
+    this.close.emit(event); // Emit close event to the parent component
+  }
+  ngOnDestroy() {
+    console.log('destroy');
+    this.showcheck = false;
+    this.subtotal = 0;
+    this.addedToppings = [];
+    this.toppings.forEach((t) => {
+      t.checked = false;
+    });
   }
 }
