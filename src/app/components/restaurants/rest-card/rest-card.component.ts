@@ -35,23 +35,19 @@ export class RestCardComponent {
     return stars;
   }
   navigateToDetails(title: any) {
-    console.log('hi');
 
     this.http
-      .get('http://localhost:4000/api/menus/getRestaurantWithMenu', {
+      .get('http://localhost:3000/api/menus/getRestaurantWithMenu', {
         params: { query: title },
       })
       .subscribe({
         next: (data: any) => {
-          console.log('data', data);
           this.menuData = data;
-          console.log('menuData', this.menuData, data);
 
           // Set the menu items and then navigate
 
           this.menuData.restaurants.forEach((element: any) => {
             if (element.title === title) {
-              console.log('element', element);
               element.menuId.deliveryprice = this.deliveryprice;
               this.usercontext.setMenuItemsOfRests(element.menuId);
             }

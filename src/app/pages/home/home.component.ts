@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.http
-      .get('http://localhost:4000/api/restaurants/getData')
+      .get('http://localhost:3000/api/restaurants/getData')
       .subscribe((data: any) => {
         console.log('data', data);
         this.restInfo = data.data;

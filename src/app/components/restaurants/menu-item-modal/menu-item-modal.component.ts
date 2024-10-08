@@ -20,7 +20,7 @@ export class MenuItemModalComponent {
     isPopular: boolean;
   }[] = [];
   maxToppings: number = 4;
-  addedToppings: { name: string; price: number }[] = [];
+  addedToppings: { name: string; price: number, checked: boolean }[] = [];
 
   constructor(private usercontext: UserContextService) {}
   ngOnInit() {
@@ -41,7 +41,7 @@ export class MenuItemModalComponent {
     const index = this.addedToppings.findIndex((t) => t.name === topping);
     console.log(price);
     if (index === -1 && this.addedToppings.length < this.maxToppings) {
-      this.addedToppings.push({ name: topping, price });
+      this.addedToppings.push({ name: topping, price, checked: true });
       console.log('Added Toppings:', this.subtotal, price);
       this.subtotal += Number(price);
     } else if (index > -1) {
@@ -78,7 +78,7 @@ export class MenuItemModalComponent {
 
   closeModal(event?:any) {
     console.log('close');
-    this.close.emit(event); // Emit close event to the parent component
+    this.close.emit(this.item); // Emit close event to the parent component
   }
   ngOnDestroy() {
     console.log('destroy');

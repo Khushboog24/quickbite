@@ -4,9 +4,16 @@
   .icon {
     position: absolute;
     right: 1rem;
+    cursor: pointer;
   }
 }
+.cart-items {
+  max-height: 35vh;
+  overflow-y: auto;
+}
 .cart-container {
+  max-height: 100vh;
+  // overflow-y: auto;
   background-color: #f7f7f7;
   border-radius: 0.5rem;
   padding: 1rem;
@@ -37,6 +44,7 @@ hr {
 
 .cart-item {
   margin-bottom: 1rem;
+  padding-right: 1rem;
 }
 
 .item-details {
@@ -48,17 +56,68 @@ hr {
     font-size: 1rem;
   }
 }
-.topping-details {
+
+.topping {
   display: flex;
+  align-items: center;
+  position: relative;
+  left: -0.9rem;
+  /* Center align items vertically */
   justify-content: space-between;
-  margin-bottom: 0.5rem;
-  font-size: 0.4rem;
-  .item-name {
-    // font-weight: bold;
-    padding-left: 0.5rem;
-    font-size: 0.8rem;
+  /* Push the price to the extreme right */
+  margin-bottom: 10px;
+  /* Wrapper for checkbox and label */
+  .topping-content {
+    display: flex;
+
+    label {
+      margin: 0;
+      margin-right: 1rem;
+      margin-left: 0.25rem;
+      display: flex;
+      align-items: center;
+    }
+    .checkbox-contain {
+      padding: 0;
+    }
+
+    .checkmark {
+      position: absolute;
+      left: 15px;
+      height: 15px;
+      width: 15px;
+      border-radius: 0.3rem;
+      background-color: #eee;
+      border: 1px solid black;
+    }
+
+    .checkbox-contain:hover input~.checkmark {
+      background-color: #ccc;
+    }
+
+
+    .checkbox-contain .icon {
+      position: absolute;
+      left: 15px;
+      font-size: 15px;
+    }
+
+    .checkbox {
+      visibility: hidden;
+
+    }
+    /* flex-direction: column; */
+    /* Align the checkbox and label vertically */
   }
 }
+
+
+/* Styling for the price */
+.topping-price {
+  margin-left: auto;
+  /* Push it to the extreme right */
+}
+
 
 .item-price {
   font-size: 1rem;
@@ -98,6 +157,7 @@ hr {
 }
 
 .price-details {
+  position: sticky;
   margin-top: 1rem;
 }
 
@@ -135,5 +195,33 @@ hr {
     left: 50%;
     transform: translateX(-50%);
     height: 4rem;
+  }
+}
+.scroll-prompt {
+  text-align: center;
+  color: #555;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+
+  .scroll {
+    width: 10rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //give box shadow from all sides
+
+  box-shadow: 0 0 1rem rgba(6, 6, 6, 0.1);
+
+  border-radius: 1rem;
+  cursor: pointer;
+  span {
+    display: flex;
+    align-items: center;
+  }
   }
 }

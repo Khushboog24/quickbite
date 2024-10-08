@@ -5,7 +5,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { UserContextService } from '../../services/user-context.service';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-restaurant-page',
@@ -23,11 +23,15 @@ export class RestaurantPageComponent {
   deliveryfee: number = 3.26;
   constructor(
     private usercontext: UserContextService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.restaurantData = this.usercontext.getMenuItemsOfRests();
+    if(this.restaurantData === undefined) {
+      this.router.navigate(['/']);
+    }
     console.log('restaurantData', this.restaurantData);
     this.route.queryParams.subscribe((params) => {
       this.title = params['title'] || '';

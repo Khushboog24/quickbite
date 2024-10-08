@@ -1,55 +1,60 @@
-<div
-  class="cart-container"
-  [ngClass]="{
-    'cart-visible': isCartVisible,
-    'cart-notvisible': !isCartVisible
-  }"
-  [ngStyle]="{ height: isCartVisible ? 'auto' : '4rem' }"
->
+<div class="cart-container" [ngClass]="{
+  'cart-visible': isCartVisible,
+  'cart-notvisible': !isCartVisible
+}" [ngStyle]="{ height: isCartVisible ? 'auto' : '4rem' }">
   <div class="header">
     <h2 class="cart-title">Shopping cart</h2>
-    <div
-      class="maximize-icon icon"
-      *ngIf="!isCartVisible"
-      (click)="toggleCart('maximize')"
-    >
+    <div class="maximize-icon icon" *ngIf="!isCartVisible" (click)="toggleCart('maximize')">
       <i class="material-icons">open_in_full</i>
     </div>
-    <div
-      class="minimize-icon icon"
-      *ngIf="isCartVisible"
-      (click)="toggleCart('minimize')"
-    >
+    <div class="minimize-icon icon" *ngIf="isCartVisible" (click)="toggleCart('minimize')">
       <i class="material-icons">close_fullscreen</i>
     </div>
   </div>
   <hr />
-
-  <div class="cart-item" *ngFor="let item of items; let i = index">
-    <div class="item-details">
-      <span class="item-name">{{ item.name }}</span>
-      <span class="item-price">${{ item.price }}</span>
-    </div>
-    <div class="topping-details" *ngFor="let topping of item.toppings">
-      <span class="item-name">{{ topping.name }}</span>
-      <!-- <span class="item-price">${{ topping.price }}</span> -->
-    </div>
-    <div class="quantity-controls">
-      <label for="quantity">Quantity</label>
-      <div class="quantity-buttons">
-        <button (click)="decrementQuantity(i)">−</button>
-        <span>{{ item.quantity }}</span>
-        <button (click)="incrementQuantity(i)">+</button>
+  <div class="cart-items">
+    <div class="cart-item" *ngFor="let item of items; let i = index">
+      <div class="item-details">
+        <span class="item-name">{{ item.name }}</span>
+        <span class="item-price">${{ (item.price).toFixed(2) }}</span>
       </div>
+      <div class="topping" *ngFor="let topping of item.toppings">
+        <div class="topping-content">
+          <label class="checkbox-contain">
+            <input type="checkbox" class="checkbox" [checked]="topping.checked" (change)="changeshowcheck(item.name, topping)" />
+            <span class="checkmark"></span>
+            <!-- Display the icon only when the topping is checked -->
+            <i *ngIf="topping.checked" class="material-icons icon">done</i>
+          </label>
+          <label for="avocado">{{ topping.name }}</label>
+        </div>
+        <div class="topping-price">${{ topping.price.toFixed(2) }}</div>
+      </div>
+
+      <div class="quantity-controls">
+        <label for="quantity">Quantity</label>
+        <div class="quantity-buttons">
+          <button (click)="decrementQuantity(i)">−</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="incrementQuantity(i)">+</button>
+        </div>
+      </div>
+
+      <hr />
     </div>
-
-    <hr />
   </div>
-
+  <div class="scroll-prompt " *ngIf="isOverflowing">
+    <div *ngIf="scrollTEnd" class="scroll" (click)="scrollToEnd('end')">Scroll to End<span><i
+          class="material-icons">keyboard_arrow_down</i>
+      </span></div>
+    <div *ngIf="!scrollTEnd" class="scroll" (click)="scrollToEnd('top')">Scroll to Top<span><i
+          class="material-icons">keyboard_arrow_up</i>
+      </span></div>
+  </div>
   <div class="price-details">
     <div>
       <span>Subtotal</span>
-      <span>${{ subtotal.toFixed(2) }}</span>
+      <span>${{ subtotalValue.toFixed(2) }}</span>
     </div>
     <div>
       <span>Delivery fee</span>
@@ -59,7 +64,7 @@
       <span>Total</span>
       <span class="total-amount">${{ (total).toFixed(2) }}</span>
     </div>
+    <button class="checkout-button">Checkout</button>
   </div>
 
-  <button class="checkout-button">Checkout</button>
 </div>

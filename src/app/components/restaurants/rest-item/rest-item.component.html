@@ -10,7 +10,14 @@
     </div>
     <div class="image-content">
       <img [src]="item.image" alt="{{ item.name }}" (click)="openFoodModal()" />
-      <button class="add-button" (click)="cartTrue()">+</button>
+      <button class="add-button" (click)="incrementQuantity()" *ngIf="!item.quantity">+</button>
+      <div *ngIf="item.quantity">
+        <div class="quantity-buttons">
+          <button (click)="decrementQuantity()">−</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="updateCart()">+</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
